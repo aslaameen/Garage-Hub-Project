@@ -1,0 +1,11 @@
+{% extends "customer/customerbase.html" %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+<form method="POST">
+{% csrf_token %}
+{{customer_form|crispy}}
+<!--{{login_form|crispy}}-->
+<button type="submit">save</button>
+</form>
+{% endblock %}

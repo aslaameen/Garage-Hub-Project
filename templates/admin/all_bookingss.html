@@ -1,0 +1,36 @@
+{% extends "admin/adminbase.html" %}
+{% block content %}
+
+<h2>All Bookings</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Service</th>
+            <th>Date</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        {% for booking in data %}
+        <tr>
+            <td>{{ booking.availability.service }}</td>
+            <td>{{ booking.availability.date }}</td>
+            <td>{{ booking.availability.start_time }}</td>
+            <td>{{ booking.availability.end_time }}</td>
+
+
+
+        </tr>
+        {% empty %}
+        <tr>
+
+        </tr>
+        {% endfor %}
+
+    </tbody>
+</table>
+
+{% endblock %}

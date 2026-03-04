@@ -1,0 +1,11 @@
+{% extends "service_center/service_centerbase.html" %}
+
+{% block content %}
+{% load crispy_forms_tags %}
+<form method="POST">
+{% csrf_token %}
+{{status_form|crispy}}
+<!--{{login_form|crispy}}-->
+<button type="submit">save</button>
+</form>
+{% endblock %}

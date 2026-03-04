@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load crispy_forms_tags %}
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #17a2b8;
+            height: 100vh;
+        }
+
+        #login {
+            height: 100%;
+        }
+
+        #login-box {
+            margin-top: 120px;
+            max-width: 600px;
+            background-color: #ffffff; /* WHITE BOX */
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .btn-block {
+            width: 100%;
+        }
+
+        /* Alert box */
+        #alertBox {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background-color: red;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 300px;
+            font-family: Arial;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 9999;
+        }
+
+        #alertBox button {
+            margin-top: 10px;
+            padding: 6px 15px;
+            border: none;
+            background: white;
+            color: #28a745;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+<div id="login">
+    <h3 class="text-center text-white pt-5">Login Form</h3>
+
+    <div class="container">
+        {% for message in messages %}
+            {% if message %}
+                <div id="alertBox">
+                    <p>{{ message }}</p>
+                    <button onclick="closeAlert()">OK</button>
+                </div>
+            {% endif %}
+        {% endfor %}
+
+        <div class="row justify-content-center align-items-center">
+            <div class="col-md-6">
+
+                <!-- WHITE BOX -->
+                <div id="login-box">
+
+                    <form method="post" enctype="multipart/form-data">
+                        {% csrf_token %}
+
+                        {{ service_form|crispy }}
+                        {{ login_form|crispy }}
+
+                        <button type="submit" class="btn btn-info btn-block mt-3">
+                            Register
+                        </button>
+                    </form>
+
+                </div>
+                <!-- END WHITE BOX -->
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function closeAlert() {
+        document.getElementById("alertBox").style.display = "none";
+    }
+
+    // Auto close after 5 minutes
+    setTimeout(closeAlert, 300000);
+</script>
+
+</body>
+</html>

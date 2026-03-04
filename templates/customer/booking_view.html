@@ -1,0 +1,47 @@
+{% extends "customer/customerbase.html" %}
+{% block content %}
+
+<h2>My Bookings</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Service</th>
+            <th>Date</th>
+            <th>Start Time</th>
+            <th>End Time</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+    <tbody>
+
+        {% for booking in data %}
+        <tr>
+            <td>{{ booking.availability.service }}</td>
+            <td>{{ booking.availability.date }}</td>
+            <td>{{ booking.availability.start_time }}</td>
+            <td>{{ booking.availability.end_time }}</td>
+            <td>{{ booking.status }}</td>
+            <td>
+            {% if availability.is_available %}
+    <a href="{% url 'booking_status' availability.id %}" class="btn btn-success">
+        Book Now
+    </a>
+
+{% endif %}
+</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="5" class="text-center">
+                No bookings found
+            </td>
+        </tr>
+
+
+        {% endfor %}
+
+    </tbody>
+</table>
+
+{% endblock %}

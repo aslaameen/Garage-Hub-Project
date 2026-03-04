@@ -1,0 +1,52 @@
+{% extends "admin/adminbase.html" %}
+
+{% block content %}
+{%load crispy_forms_tags %}
+<table class="table table-bordered table-striped">
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Model</th>
+      <th scope="col">Number_plate</th>
+      <th scope="col">Rc_number</th>
+         <th scope="col">Car Name</th>
+        <th scope="col">Brand </th>
+        <th scope="col">Model </th>
+        <th scope="col">Y.O.M </th>
+        <th scope="col">Fuel Type </th>
+        <th scope="col">Rg No </th>
+        <th scope="col">Type </th>
+      <th scope="col">profile</th>
+
+
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for i in data %}
+    <tr>
+      <th scope="row">{{ forloop.counter }}</th>
+      <td>{{ i.model }}</td>
+      <td>{{ i.number_plate }}</td>
+      <td>{{i.rc_number}}</td>
+        <td>{{ i.car_name }}</td>
+        <td>{{ i.brand }}</td>
+        <td>{{ i.model }}</td>
+          <td>{{ i.year_of_manufacture }}</td>
+          <td>{{ i.fuel_type }}</td>
+          <td>{{ i.registration_number }}</td>
+          <td>{{ i.type }}</td>
+        <td><img src="{{i.document.url}}" height="100"></td>
+
+
+
+    </tr>
+    {% empty %}
+    <tr>
+      <td colspan="3" class="text-center text-muted">No data available</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

@@ -15,7 +15,7 @@
     body {
   margin: 0;
   padding: 0;
-  background-color: #17a2b8;
+  background-color: #ffffff;
   height: 100vh;
 }
 #login .container #login-row #login-column #login-box {
@@ -109,19 +109,21 @@
                                 <label for="password" class="text-info">Password:</label><br>
                                 <input type="text" name="pass" id="password" class="form-control">
                             </div>
-<!--                            <div class="form-group">-->
-<!--&lt;!&ndash;                                <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>&ndash;&gt;-->
-<!--                          &#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;&#45;      <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">-->
-<!--                                <a href="{% url 'own_add' %}" class="btn btn-info btn-md">-->
-<!--        owner_register-->
-<!--    </a>-->
-<!--                                 <a href="{% url 'pass_add' %}" class="btn btn-info btn-md">-->
-<!--        passenger_register-->
-<!--    </a>-->
 
-<!--                            </div>-->
+                             <div class="form-group">
+<!--                                <label for="remember-me" class="text-info"><span>Remember me</span> <span><input id="remember-me" name="remember-me" type="checkbox"></span></label><br>-->
+                                <input type="submit" name="submit" class="btn btn-info btn-md" value="submit">
+                                <a href="{% url 'service_add' %}" class="btn btn-info btn-md">
+        service_register
+    </a>
+                                  <a href="{% url 'customer_add' %}" class="btn btn-info btn-md">
+        customer_register
+    </a>
+
+                            </div>
+<!--
                             <div id="register-link" class="text-right">
-<!--                                <a href="#" class="text-info">Register here</a>-->
+                                <a href="#" class="text-info">Register here</a>
                             </div>
                         </form>
                     </div>
@@ -132,4 +134,3 @@
   </body>
 
 </html>
-

@@ -1,0 +1,19 @@
+{% extends "service_center/service_centerbase.html" %}
+{% block content %}
+
+<h2>Add Status</h2>
+
+<form method="post">
+    {% csrf_token %}
+
+    <label>Status:</label>
+    <select name="status" class="form-control">
+        <option value="accepted">Accepted</option>
+        <option value="slot not available">SLOT NOT AVAILABLE</option>
+    </select>
+
+    <br>
+    <button type="submit" class="btn btn-success">Update</button>
+</form>
+
+{% endblock %}
